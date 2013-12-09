@@ -17,7 +17,7 @@ def ret_val(a):
 
 
 def check_name_present( rollno, name, age,phonenumber ):
-	db=MySQLdb.connect(host="localhost", user="varun", passwd="raghav", db="test_db");
+	db=MySQLdb.connect(host="localhost", user="_____", passwd="_____", db="test_db");
 	allrows=db.cursor()
 	allrows.execute(" select * from student")
 	for k in allrows:
@@ -39,7 +39,7 @@ def putmessage(a,b):
 
 #Here da 
 def get_semester_subjects(semester):
-	db = MySQLdb.connect(host="localhost", user="varun", passwd="raghav", db="test_db");
+	db = MySQLdb.connect(host="localhost", user="_____", passwd="_____", db="test_db");
 	all_rows=db.cursor();
 	all_rows.execute("select code, credits from batch_info where batch=%s"%(semester))
 	ar=[{}]
@@ -74,7 +74,7 @@ class Mark_entry(Frame):
 		gpa/=len(self.v)
 		gpa=str(gpa)
 
-		db = MySQLdb.connect(host="localhost", user="varun", passwd="raghav", db="test_db");
+		db = MySQLdb.connect(host="localhost", user="_____", passwd="_____", db="test_db");
 		cur=db.cursor();
 		cur.execute("insert into sample values(%s, %s)" %(stri, gpa));
 		#print "Updated"
@@ -131,7 +131,7 @@ class Batch_entry(Frame):
 	def put_in_db (self) :
 		code=self.code.get()
 		credit=self.credit.get()
-		db = MySQLdb.connect(host="localhost", user="varun", passwd="raghav", db="test_db");
+		db = MySQLdb.connect(host="localhost", user="_____", passwd="_____", db="test_db");
 		cur=db.cursor();
 		cur.execute("insert into batch_info values(%s, %s, %s)" %(str(self.semester), code, credit));
 		print "Updated"
@@ -176,7 +176,7 @@ class Mark_entry(Frame):
 
 	def put_in_db (self) :
 		roll_no=self.rt1.get()
-		db = MySQLdb.connect(host="localhost", user="varun", passwd="raghav", db="test_db");
+		db = MySQLdb.connect(host="localhost", user="_____", passwd="_____", db="test_db");
 		cur=db.cursor();
 		tenum=1
 		for j in self.rowtext:
@@ -235,7 +235,7 @@ class find_result(Frame):
 		self.initUI()
 
 	def get_values (self) :
-		self.db = MySQLdb.connect(host="localhost", user="varun", passwd="raghav", db="test_db");
+		self.db = MySQLdb.connect(host="localhost", user="_____", passwd="_____", db="test_db");
 		self.cur=self.db.cursor();
 		stud = self.rollno.get()
 		self.cur.execute("select code,grade from marks where batch=%s and stud_id= %s"%(self.semester, stud));
@@ -294,7 +294,7 @@ class Batch_entry(Frame):
 	def put_in_db (self) :
 		code=self.code.get()
 		credit=self.credit.get()
-		db = MySQLdb.connect(host="localhost", user="varun", passwd="raghav", db="test_db");
+		db = MySQLdb.connect(host="localhost", user="_____", passwd="_____", db="test_db");
 		cur=db.cursor();
 		cur.execute("insert into batch_info values(%s, '%s', %s);" %(str(self.semester), code, credit));
 		print "Updated"
